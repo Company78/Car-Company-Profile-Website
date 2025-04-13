@@ -10,11 +10,12 @@ The website showcases a car company's profile, including:
 
 Company information
 
-Featured car models
+Test drive offered
 
 Services offered
 
 Contact section
 
 With the help of W3.CSS, the layout adjusts smoothly across different screen sizes, making it look great on desktops, tablets, and mobile devices.
+
 Feel free to explore the code, customize the design, or use it as a template for your own car business website!
