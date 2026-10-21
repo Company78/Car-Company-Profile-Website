@@ -1,0 +1,215 @@
+/* =========================================================
+   mobile.css — phone/tablet overrides for ALL dashboards
+   (admin, manager, inventory, purchasing, receiving, releasing)
+   I-link NA SA UBOS sa main CSS sa matag HTML:
+   <link rel="stylesheet" href="mobile.css">
+========================================================= */
+
+/* ---------- Tablet + Phone (<= 900px) ---------- */
+@media (max-width: 900px) {
+
+    html {
+        max-width: 100%;
+        overflow-x: hidden;
+        -webkit-text-size-adjust: 100%;
+    }
+    /* clip (dili hidden) para dili mahimong scroll container ang body;
+       kung dili, dili mo-work ang sticky topbar */
+    body { max-width: 100%; overflow-x: clip; }
+
+    /* Proper full-height on mobile browsers (address bar issue) */
+    @supports (height: 100dvh) {
+        .app-shell, .main-area { height: 100dvh; }
+        .sidebar { height: 100dvh; }
+    }
+
+    /* ---------- INVENTORY: ang tibuok page ang mo-scroll,
+       mao nga sticky ang topbar aron makita gihapon ang hamburger ---------- */
+    body:has(#adjustments-section),
+    html:has(#adjustments-section) {
+        height: 100%;
+        overflow: hidden;
+    }
+    body:has(#adjustments-section) .app-shell {
+        height: 100vh;
+        height: 100dvh;
+        min-height: 0;
+        overflow: hidden;
+    }
+    body:has(#adjustments-section) .main-area {
+        height: 100vh;
+        height: 100dvh;
+        overflow: hidden;
+    }
+    body:has(#adjustments-section) .topbar {
+        position: static;      /* dili na mo-uban sa scroll */
+        flex-shrink: 0;
+    }
+    body:has(#adjustments-section) .content {
+        flex: 1;
+        min-height: 0;
+        overflow-y: auto;      /* ang sulod ra ang mo-scroll */
+        overflow-x: hidden;
+        -webkit-overflow-scrolling: touch;
+    }
+    .main-area { width: 100%; }
+
+    /* ---------- Topbar ---------- */
+    .topbar {
+        padding: 10px 14px;
+        padding-top: calc(10px + env(safe-area-inset-top, 0px));
+        gap: 8px;
+    }
+    .topbar h1 { font-size: 16px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .topbar-title { min-width: 0; }
+    .topbar-user {
+        font-size: 12px; min-width: 0; max-width: 45%;
+        white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+    }
+    .hamburger-btn { padding: 10px; margin-right: 6px; flex-shrink: 0; }
+
+    /* ---------- Sidebar drawer ---------- */
+    .sidebar { max-width: 85vw; width: 260px !important; }
+    .sidebar-scroll { -webkit-overflow-scrolling: touch; }
+    .nav-link { padding: 12px; font-size: 14px; }
+
+    /* ---------- Content ---------- */
+    .content {
+        padding: 12px;
+        padding-bottom: calc(16px + env(safe-area-inset-bottom, 0px));
+        -webkit-overflow-scrolling: touch;
+    }
+
+    /* ---------- Stat cards (2 per row) ---------- */
+    .stat-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+        gap: 10px;
+        margin-bottom: 14px;
+    }
+    .stat-card { padding: 12px; gap: 10px; }
+    .stat-icon { width: 38px; height: 38px; border-radius: 10px; }
+    .stat-icon svg { width: 20px; height: 20px; }
+    .stat-label {
+        font-size: 10.5px; white-space: normal !important;
+        overflow: visible !important; text-overflow: clip !important; line-height: 1.25;
+    }
+    .stat-value { font-size: 20px; white-space: normal !important; }
+
+    /* ---------- Charts / panels ---------- */
+    .charts-grid,
+    .dashboard-grid { grid-template-columns: minmax(0, 1fr) !important; gap: 14px; }
+    .panel { padding: 14px; }
+    .chart-container { height: 230px !important; min-height: 0; }
+    .chart-container-doughnut { height: 260px !important; }
+    .panel-header { flex-direction: column; align-items: flex-start; gap: 2px; }
+
+    /* ---------- Toolbars + filters (stack, full width) ---------- */
+    .section-toolbar,
+    .toolbar-actions { flex-direction: column; align-items: stretch; width: 100%; gap: 10px; }
+    .toolbar-actions { flex-direction: row; flex-wrap: wrap; }
+    .toolbar-actions .btn { flex: 1 1 auto; }
+
+    .filter-bar { flex-direction: column; align-items: stretch; gap: 10px; }
+    .filter-field { flex: 1 1 auto !important; width: 100%; min-width: 0 !important; }
+    .filter-field input, .filter-field select,
+    .search-input, select.search-input { width: 100%; min-width: 0 !important; }
+    .filter-actions,
+    .filter-bar .filter-push { width: 100%; margin-left: 0 !important; flex-wrap: wrap; }
+    .filter-actions .btn { flex: 1 1 auto; }
+
+    /* iOS: 16px inputs stop the auto-zoom */
+    input, select, textarea,
+    .form-group input, .form-group select, .form-group textarea,
+    .filter-field input, .filter-field select, .search-input { font-size: 16px !important; }
+
+    /* ---------- Tabs: swipe sideways ---------- */
+    .tabs {
+        flex-wrap: nowrap; overflow-x: auto; -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+    }
+    .tabs::-webkit-scrollbar { display: none; }
+    .tab-btn { white-space: nowrap; flex-shrink: 0; padding: 10px 14px; }
+
+    /* ---------- TABLES: scroll sideways inside their own pane ---------- */
+    /* Ang table mismo dili na i-display:block (mao nang mikitid).
+       Ang container ang mo-scroll; ang table full-width gihapon. */
+    table:not(.al-table):not(.line-table):not(.dm-table) {
+        display: table;
+        width: max-content !important;
+        min-width: 100% !important;
+        max-width: none;
+        table-layout: auto !important;
+    }
+    /* Gi-wrap sa mobile.js ang matag table; ang wrapper ra ang mo-scroll,
+       dili ang filter/search sa taas. */
+    .table-scroll {
+        width: 100%;
+        max-width: 100%;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+    .data-table th, .data-table td { white-space: nowrap; padding: 10px 12px; }
+    .data-table td.al-det { white-space: normal; }
+    .table-responsive, .table-wrap, .al-scroll {
+        max-width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch;
+    }
+
+    /* Tables inside modals */
+    .modal-body .line-table { min-width: 640px; }
+    .release-table-wrap .line-table { min-width: 1000px; }
+    .dm-body { overflow-x: auto; }
+    .dm-table { min-width: 480px; }
+    .line-table th, .line-table td { white-space: nowrap; }
+
+    /* ---------- Audit log ---------- */
+    .al-top { flex-direction: column; align-items: stretch !important; }
+    #section-audit .al-search, #audit-section .al-search { max-width: 100%; }
+    .al-tools { width: 100%; }
+    .al-tools .btn { flex: 1; }
+    .al-chips { flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; padding-bottom: 4px; }
+    .al-chip { flex-shrink: 0; }
+    .al-pagebar { flex-direction: column; align-items: stretch; gap: 10px; }
+    .al-pager { justify-content: center; }
+
+    /* ---------- Modals ---------- */
+    .modal-overlay, .msgm-overlay { padding: 8px; }
+    .modal-box,
+    .wide-modal-box, .release-modal-box,
+    .archived-modal-box, .sp-box, .dm-box {
+        width: 100% !important; max-width: 100% !important; max-height: 94dvh;
+    }
+    .modal-header { padding: 12px 14px; }
+    .modal-body { padding: 14px; }
+    .modal-footer { padding: 12px 14px; flex-wrap: wrap; }
+    .modal-footer .btn { flex: 1 1 auto; }
+    .form-row { grid-template-columns: 1fr !important; }
+
+    /* Details modal */
+    .dm-head { padding: 14px; flex-wrap: wrap; }
+    .dm-meta { grid-template-columns: 1fr 1fr; padding: 14px; }
+    .dm-stepper { padding: 6px 20px 16px; overflow-x: auto; }
+    .dm-foot { padding: 12px 14px; }
+    .dm-update-bar { padding: 14px; }
+
+    /* Supplier-products modal */
+    .sp-grid { grid-template-columns: 1fr 1fr; }
+    .sp-toast { white-space: normal; width: max-content; max-width: 90%; text-align: center; }
+
+    /* Release actions */
+    .release-actions-bar { flex-direction: column; align-items: stretch; }
+    .release-grand-total { justify-content: space-between; }
+
+    /* Bigger tap targets for table action buttons */
+    .btn-icon { padding: 7px 10px; }
+}
+
+/* ---------- Small phones (<= 480px) ---------- */
+@media (max-width: 480px) {
+    .stat-grid { gap: 8px; }
+    .stat-card { flex-direction: column; align-items: flex-start; }
+    .chart-container { height: 210px !important; }
+    .chart-container-doughnut { height: 280px !important; }
+    .sp-grid { grid-template-columns: 1fr; }
+    .dm-meta { grid-template-columns: 1fr; }
+    .al-pg { min-width: 34px; height: 34px; padding: 0 8px; }
+}

@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Login — Grocery Warehouse Management System</title>
+<link rel="stylesheet" href="login.css">
+
+<!-- ✅ ALERT MODAL STYLES — self-contained (unique class names) para
+     dili kinahanglan usbon ang login.css ug dili mo-conflict. -->
+<style>
+    .alert-overlay {
+        position: fixed;
+        inset: 0;
+        background: rgba(5, 46, 22, 0.55);
+        display: none;
+        align-items: center;
+        justify-content: center;
+        padding: 16px;
+        z-index: 9999;
+    }
+    .alert-overlay.open { display: flex; }
+
+    .alert-box {
+        background: #FFFFFF;
+        width: 100%;
+        max-width: 400px;
+        border-radius: 14px;
+        box-shadow: 0 20px 50px rgba(0, 0, 0, 0.25);
+        overflow: hidden;
+        animation: alertPop 0.18s ease-out;
+    }
+    @keyframes alertPop {
+        from { opacity: 0; transform: translateY(8px) scale(0.97); }
+        to   { opacity: 1; transform: translateY(0) scale(1); }
+    }
+
+    .alert-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 16px 20px;
+        border-bottom: 1px solid #E5E7EB;
+    }
+    .alert-header h3 {
+        margin: 0;
+        font-size: 17px;
+        font-weight: 700;
+        color: #052E16;
+    }
+    .alert-close {
+        background: none;
+        border: none;
+        font-size: 24px;
+        line-height: 1;
+        cursor: pointer;
+        color: #6B7280;
+    }
+    .alert-close:hover { color: #052E16; }
+
+    .alert-body {
+        padding: 20px;
+    }
+    .alert-body p {
+        margin: 0;
+        font-size: 14px;
+        line-height: 1.5;
+        color: #1F2937;
+        white-space: pre-line; /* gi-respeto ang \n sa message */
+    }
+
+    .alert-footer {
+        display: flex;
+        justify-content: flex-end;
+        padding: 12px 20px 16px;
+    }
+    .alert-ok {
+        background: #16A34A;
+        color: #FFFFFF;
+        border: none;
+        border-radius: 8px;
+        padding: 8px 22px;
+        font-size: 14px;
+        font-weight: 600;
+        cursor: pointer;
+    }
+    .alert-ok:hover { background: #15803D; }
+</style>
+</head>
+<body class="login-body">
+
+    <div class="login-wrapper">
+
+        <div class="login-card">
+
+            <div class="login-brand">
+                <div class="login-logo">GW</div>
+                <h1>Grocery Warehouse</h1>
+                <p>Management System</p>
+            </div>
+
+            <form id="login-form" onsubmit="return false;">
+
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    <input type="text" id="username" placeholder="Enter your username" autocomplete="username">
+                </div>
+
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" placeholder="Enter your password" autocomplete="current-password">
+                </div>
+
+                <button type="button" id="btn-login" class="btn btn-primary btn-block">Log In</button>
+
+            </form>
+
+            <p class="login-note">
+                Accounts are created by the Administrator only.<br>
+                No public sign-up is available for this system.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <!-- ✅ ALERT MODAL — puli sa browser alert(). Gamita ang showAlert(message, title). -->
+    <div class="alert-overlay" id="alert-modal-overlay" role="dialog" aria-modal="true" aria-labelledby="alert-modal-title">
+        <div class="alert-box">
+            <div class="alert-header">
+                <h3 id="alert-modal-title">Notice</h3>
+                <button type="button" class="alert-close" id="alert-modal-close" aria-label="Close">&times;</button>
+            </div>
+            <div class="alert-body">
+                <p id="alert-message"></p>
+            </div>
+            <div class="alert-footer">
+                <button type="button" class="alert-ok" id="alert-modal-ok">OK</button>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.6.8/axios.min.js"></script>
+    <script src="login.js"></script>
+</body>
+</html>

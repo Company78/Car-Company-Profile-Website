@@ -1,0 +1,1035 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard — Grocery Warehouse Management System</title>
+
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+        rel="stylesheet"
+    >
+   <link rel="stylesheet" href="admin.css?v=3">
+   <link rel="stylesheet" href="mobile.css">
+   <link rel="stylesheet" href="notifications.css">
+   <script src="mobile.js"></script>
+</head>
+
+<body>
+
+<div class="app-shell">
+
+<aside class="sidebar" id="sidebar">
+
+    <div class="sidebar-scroll">
+
+        <div class="sidebar-brand">
+            <div class="login-logo small">GW</div>
+            <div class="sidebar-brand-text">
+                <h2>Grocery WH</h2>
+                <span>Admin Panel</span>
+            </div>
+        </div>
+
+        <nav class="sidebar-nav">
+
+            <button class="nav-link active" data-target="section-dashboard" title="Dashboard">
+                <span class="nav-icon">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="3" y="3" width="7" height="7"></rect>
+                        <rect x="14" y="3" width="7" height="7"></rect>
+                        <rect x="14" y="14" width="7" height="7"></rect>
+                        <rect x="3" y="14" width="7" height="7"></rect>
+                    </svg>
+                </span>
+                <span class="nav-text">Dashboard</span>
+            </button>
+
+            <div class="nav-group-label">MASTER DATA</div>
+
+            <button class="nav-link" data-target="section-role" title="Roles">
+                <span class="nav-icon">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
+                    </svg>
+                </span>
+                <span class="nav-text">Roles</span>
+            </button>
+
+            <button class="nav-link" data-target="section-category" title="Categories">
+                <span class="nav-icon">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="21 8 21 21 3 21 3 8"></polyline>
+                        <rect x="1" y="3" width="22" height="5"></rect>
+                        <line x1="10" y1="12" x2="14" y2="12"></line>
+                    </svg>
+                </span>
+                <span class="nav-text">Categories</span>
+            </button>
+
+            <button class="nav-link" data-target="section-supplier" title="Suppliers">
+                <span class="nav-icon">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                        <circle cx="8.5" cy="7" r="4"></circle>
+                        <line x1="20" y1="8" x2="20" y2="14"></line>
+                        <line x1="23" y1="11" x2="17" y2="11"></line>
+                    </svg>
+                </span>
+                <span class="nav-text">Suppliers</span>
+            </button>
+
+            <button class="nav-link" data-target="section-storage-location" title="Storage Location">
+                <span class="nav-icon">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                        <circle cx="12" cy="10" r="3"></circle>
+                    </svg>
+                </span>
+                <span class="nav-text">Storage Location</span>
+            </button>
+
+            <button class="nav-link" data-target="section-product" title="Products">
+                <span class="nav-icon">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
+                        <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
+                        <line x1="12" y1="22.08" x2="12" y2="12"></line>
+                    </svg>
+                </span>
+                <span class="nav-text">Products</span>
+            </button>
+
+            <button class="nav-link" data-target="section-uom" title="Units of Measure">
+                <span class="nav-icon">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
+                    </svg>
+                </span>
+                <span class="nav-text">Units of Measure</span>
+            </button>
+
+            <div class="nav-group-label">ACCOUNTS</div>
+
+            <button class="nav-link" data-target="section-user" title="Users">
+                <span class="nav-icon">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                        <circle cx="12" cy="7" r="4"></circle>
+                    </svg>
+                </span>
+                <span class="nav-text">Users</span>
+            </button>
+
+            <div class="nav-group-label">RECORDS</div>
+
+            <button class="nav-link" data-target="section-transactions" title="Inventory &amp; Transactions">
+                <span class="nav-icon">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="12" y1="1" x2="12" y2="23"></line>
+                        <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+                    </svg>
+                </span>
+                <span class="nav-text">Inventory &amp; Transactions</span>
+            </button>
+
+            <button class="nav-link" data-target="section-audit" title="Audit Log">
+                <span class="nav-icon">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                        <polyline points="14 2 14 8 20 8"></polyline>
+                        <line x1="16" y1="13" x2="8" y2="13"></line>
+                        <line x1="16" y1="17" x2="8" y2="17"></line>
+                        <polyline points="10 9 9 9 8 9"></polyline>
+                    </svg>
+                </span>
+                <span class="nav-text">Audit Log</span>
+            </button>
+
+        </nav>
+
+    </div>
+
+    <div class="sidebar-profile" id="sidebar-profile">
+        <button
+            class="sidebar-profile-trigger"
+            id="sidebar-profile-trigger"
+            aria-haspopup="true"
+            aria-expanded="false"
+        >
+            <span class="sidebar-profile-avatar" id="sidebar-profile-avatar">A</span>
+            <span class="sidebar-profile-info">
+                <span class="sidebar-profile-name" id="sidebar-profile-name">Admin</span>
+                <span class="sidebar-profile-role" id="sidebar-profile-role">Administrator</span>
+            </span>
+            <span class="sidebar-profile-caret" aria-hidden="true">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="18 15 12 9 6 15"></polyline>
+                </svg>
+            </span>
+        </button>
+
+        <div class="sidebar-profile-menu" id="sidebar-profile-menu" role="menu">
+            <button class="sidebar-profile-logout" id="btn-logout" role="menuitem">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
+                    <polyline points="16 17 21 12 16 7"></polyline>
+                    <line x1="21" y1="12" x2="9" y2="12"></line>
+                </svg>
+                Log Out
+            </button>
+        </div>
+    </div>
+
+    <button
+        class="sidebar-toggle"
+        id="sidebar-toggle"
+        title="Collapse sidebar"
+    >
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="15 18 9 12 15 6"></polyline>
+        </svg>
+    </button>
+
+</aside>
+
+
+    <div class="main-area">
+
+        <header class="topbar">
+
+            <div class="topbar-title">
+
+                <button
+                    class="hamburger-btn"
+                    id="hamburger-btn"
+                    title="Toggle menu"
+                >
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+
+                <h1 id="page-title">Dashboard</h1>
+            </div>
+
+            <div class="topbar-user">
+                <span id="welcome-text">Welcome, Admin</span>
+            </div>
+
+        </header>
+
+
+        <main class="content">
+
+            <section id="section-dashboard" class="page-section active-section">
+
+                <div class="stat-grid">
+
+                    <div class="stat-card stat-card-products clickable-card"
+                         role="button" tabindex="0"
+                         title="View Products"
+                         onclick="goToSection('section-product')"
+                         onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();goToSection('section-product');}">
+                        <div class="stat-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
+                                <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
+                                <line x1="12" y1="22.08" x2="12" y2="12"></line>
+                            </svg>
+                        </div>
+                        <div class="stat-info">
+                            <span class="stat-label">Total Products</span>
+                            <span class="stat-value" id="stat-products">0</span>
+                        </div>
+                    </div>
+
+                    <div class="stat-card stat-card-suppliers clickable-card"
+                         role="button" tabindex="0"
+                         title="View Suppliers"
+                         onclick="goToSection('section-supplier')"
+                         onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();goToSection('section-supplier');}">
+                        <div class="stat-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                                <circle cx="8.5" cy="7" r="4"></circle>
+                                <line x1="20" y1="8" x2="20" y2="14"></line>
+                                <line x1="23" y1="11" x2="17" y2="11"></line>
+                            </svg>
+                        </div>
+                        <div class="stat-info">
+                            <span class="stat-label">Total Suppliers</span>
+                            <span class="stat-value" id="stat-suppliers">0</span>
+                        </div>
+                    </div>
+
+                    <div class="stat-card stat-card-categories clickable-card"
+                         role="button" tabindex="0"
+                         title="View Categories"
+                         onclick="goToSection('section-category')"
+                         onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();goToSection('section-category');}">
+                        <div class="stat-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="21 8 21 21 3 21 3 8"></polyline>
+                                <rect x="1" y="3" width="22" height="5"></rect>
+                                <line x1="10" y1="12" x2="14" y2="12"></line>
+                            </svg>
+                        </div>
+                        <div class="stat-info">
+                            <span class="stat-label">Total Categories</span>
+                            <span class="stat-value" id="stat-categories">0</span>
+                        </div>
+                    </div>
+
+                    <div class="stat-card stat-card-users clickable-card"
+                         role="button" tabindex="0"
+                         title="View Users"
+                         onclick="goToSection('section-user')"
+                         onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();goToSection('section-user');}">
+                        <div class="stat-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                                <circle cx="12" cy="7" r="4"></circle>
+                            </svg>
+                        </div>
+                        <div class="stat-info">
+                            <span class="stat-label">Active Users</span>
+                            <span class="stat-value" id="stat-active-users">0 / 0</span>
+                        </div>
+                    </div>
+
+                    <div class="stat-card stat-card-pending clickable-card"
+                         role="button" tabindex="0"
+                         title="View Purchase Orders"
+                         onclick="goToSection('section-transactions','tab-po')"
+                         onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();goToSection('section-transactions','tab-po');}">
+                        <div class="stat-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="12" cy="12" r="10"></circle>
+                                <polyline points="12 6 12 12 16 14"></polyline>
+                            </svg>
+                        </div>
+                        <div class="stat-info">
+                            <span class="stat-label">Pending Purchase Orders</span>
+                            <span class="stat-value" id="stat-pending-po">0</span>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="charts-grid">
+
+                    <div class="panel chart-panel clickable-card"
+                         role="button" tabindex="0"
+                         title="View Categories"
+                         onclick="goToSection('section-category')"
+                         onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();goToSection('section-category');}">
+                        <div class="panel-header">
+                            <h3>Products by Category</h3>
+                            <span class="panel-subtitle" id="chartCategorySubtitle">Top 6 of 0 categories</span>
+                        </div>
+                        <div class="chart-container">
+                            <canvas id="chart-products-category"></canvas>
+                        </div>
+                    </div>
+
+                    <div class="panel chart-panel clickable-card"
+                         role="button" tabindex="0"
+                         title="View Purchase Orders"
+                         onclick="goToSection('section-transactions','tab-po')"
+                         onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();goToSection('section-transactions','tab-po');}">
+                        <div class="panel-header">
+                            <h3>Purchase Order Status</h3>
+                            <span class="panel-subtitle">All records</span>
+                        </div>
+                        <div class="chart-container chart-container-doughnut">
+                            <canvas id="chart-po-status"></canvas>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="dashboard-grid">
+
+                    <div class="panel">
+                        <div class="panel-header">
+                            <h3>Products (min stock reference)</h3>
+                        </div>
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>Product</th>
+                                    <th>Min Stock Level</th>
+                                </tr>
+                            </thead>
+                            <tbody id="tbl-low-stock"></tbody>
+                        </table>
+                    </div>
+
+                    <div class="panel">
+                        <div class="panel-header">
+                            <h3>Recent Activity</h3>
+                        </div>
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>User</th>
+                                    <th>Action</th>
+                                    <th>Table</th>
+                                    <th>When</th>
+                                </tr>
+                            </thead>
+                            <tbody id="tbl-recent-activity"></tbody>
+                        </table>
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <section id="section-role" class="page-section">
+
+                <div class="section-toolbar">
+                    <input type="text" class="search-input" id="search-role" placeholder="Search roles...">
+                    <div class="toolbar-actions">
+                        <button class="btn btn-outline-secondary" onclick="openArchivedModal('role')">Archived</button>
+                        <button class="btn btn-primary" onclick="openFormModal('role')">+ Add Role</button>
+                    </div>
+                </div>
+
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Role Name</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tbl-role"></tbody>
+                </table>
+
+            </section>
+
+
+            <section id="section-category" class="page-section">
+
+                <div class="section-toolbar">
+                    <input type="text" class="search-input" id="search-category" placeholder="Search categories...">
+                    <div class="toolbar-actions">
+                        <button class="btn btn-outline-secondary" onclick="openArchivedModal('category')">Archived</button>
+                        <button class="btn btn-primary" onclick="openFormModal('category')">+ Add Category</button>
+                    </div>
+                </div>
+
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Category Name</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tbl-category"></tbody>
+                </table>
+
+            </section>
+
+
+            <section id="section-supplier" class="page-section">
+
+                <div class="section-toolbar">
+                    <input type="text" class="search-input" id="search-supplier" placeholder="Search suppliers...">
+                    <div class="toolbar-actions">
+                        <button class="btn btn-outline-secondary" onclick="openArchivedModal('supplier')">Archived</button>
+                        <button class="btn btn-primary" onclick="openFormModal('supplier')">+ Add Supplier</button>
+                    </div>
+                </div>
+
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Contact</th>
+                            <th>Phone</th>
+                            <th>Email</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tbl-supplier"></tbody>
+                </table>
+
+            </section>
+
+
+            <section id="section-storage-location" class="page-section">
+
+                <div class="tabs">
+                    <button class="tab-btn active" data-storage-tab="tab-aisle">Aisles</button>
+                    <button class="tab-btn" data-storage-tab="tab-shelf">Shelves</button>
+                    <button class="tab-btn" data-storage-tab="tab-bin">Bins</button>
+                </div>
+
+                <!-- AISLES TAB -->
+                <div id="tab-aisle" class="tab-panel active-tab">
+                    <div class="filter-bar">
+                        <div class="filter-field">
+                            <label for="search-aisle">Search</label>
+                            <input type="text" id="search-aisle" placeholder="Aisle code">
+                        </div>
+                        <div class="filter-actions">
+                            <button class="btn btn-outline" onclick="clearStorageFilters('aisle')">Clear</button>
+                        </div>
+                        <div class="filter-actions filter-push">
+                            <button class="btn btn-outline-secondary" onclick="openArchivedModal('aisle')">Archived</button>
+                            <button class="btn btn-primary" onclick="openFormModal('aisle')">+ Add Aisle</button>
+                        </div>
+                    </div>
+                    <div class="filter-count" id="aisle-count"></div>
+                    <table class="data-table">
+                        <thead><tr><th>AISLE CODE</th><th>ACTIONS</th></tr></thead>
+                        <tbody id="tbl-aisle"></tbody>
+                    </table>
+                </div>
+
+                <!-- SHELVES TAB -->
+                <div id="tab-shelf" class="tab-panel">
+                    <div class="filter-bar">
+                        <div class="filter-field">
+                            <label for="search-shelf">Search</label>
+                            <input type="text" id="search-shelf" placeholder="Shelf code">
+                        </div>
+                        <div class="filter-field">
+                            <label for="filter-shelf-aisle">Aisle</label>
+                            <select id="filter-shelf-aisle"><option value="">All aisles</option></select>
+                        </div>
+                        <div class="filter-actions">
+                            <button class="btn btn-outline" onclick="clearStorageFilters('shelf')">Clear</button>
+                        </div>
+                        <div class="filter-actions filter-push">
+                            <button class="btn btn-outline-secondary" onclick="openArchivedModal('shelf')">Archived</button>
+                            <button class="btn btn-primary" onclick="openFormModal('shelf')">+ Add Shelf</button>
+                        </div>
+                    </div>
+                    <div class="filter-count" id="shelf-count"></div>
+                    <table class="data-table">
+                        <thead><tr><th>AISLE</th><th>SHELF CODE</th><th>ACTIONS</th></tr></thead>
+                        <tbody id="tbl-shelf"></tbody>
+                    </table>
+                </div>
+
+                <!-- BINS TAB -->
+                <div id="tab-bin" class="tab-panel">
+                    <div class="filter-bar">
+                        <div class="filter-field">
+                            <label for="search-bin">Search</label>
+                            <input type="text" id="search-bin" placeholder="Bin code">
+                        </div>
+                        <div class="filter-field">
+                            <label for="filter-bin-aisle">Aisle</label>
+                            <select id="filter-bin-aisle"><option value="">All aisles</option></select>
+                        </div>
+                        <div class="filter-field">
+                            <label for="filter-bin-shelf">Shelf</label>
+                            <select id="filter-bin-shelf"><option value="">All shelves</option></select>
+                        </div>
+                        <div class="filter-actions">
+                            <button class="btn btn-outline" onclick="clearStorageFilters('bin')">Clear</button>
+                        </div>
+                        <div class="filter-actions filter-push">
+                            <button class="btn btn-outline-secondary" onclick="openArchivedModal('bin')">Archived</button>
+                            <button class="btn btn-primary" onclick="openFormModal('bin')">+ Add Bin</button>
+                        </div>
+                    </div>
+                    <div class="filter-count" id="bin-count"></div>
+                    <table class="data-table">
+                        <thead><tr><th>AISLE</th><th>SHELF</th><th>BIN CODE</th><th>ACTIONS</th></tr></thead>
+                        <tbody id="tbl-bin"></tbody>
+                    </table>
+                </div>
+
+            </section>
+
+
+            <!-- ============================================================
+                 PRODUCTS  (search + category filter)
+            ============================================================ -->
+            <section id="section-product" class="page-section">
+
+                <div class="section-toolbar">
+                    <div class="toolbar-actions">
+                        <input type="text" class="search-input" id="search-product" placeholder="Search products...">
+                        <select class="search-input" id="filter-product-category">
+                            <option value="">All categories</option>
+                        </select>
+                    </div>
+                    <div class="toolbar-actions">
+                        <button class="btn btn-outline-secondary" onclick="openArchivedModal('product')">Archived</button>
+                        <button class="btn btn-primary" onclick="openFormModal('product')">+ Add Product</button>
+                    </div>
+                </div>
+
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Barcode</th>
+                            <th>Category</th>
+                            <th>Unit</th>
+                            <th class="num">Cost Price</th>
+                            <th>Min Stock</th>
+                            <th>Max Stock</th>
+                            <th>Bin</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tbl-product"></tbody>
+                </table>
+
+            </section>
+
+
+            <!-- ============================================================
+                 UNITS OF MEASURE
+            ============================================================ -->
+            <section id="section-uom" class="page-section">
+
+                <div class="section-toolbar">
+                    <input type="text" class="search-input" id="search-uom" placeholder="Search units...">
+                    <div class="toolbar-actions">
+                        <button class="btn btn-outline-secondary" onclick="openArchivedModal('uom')">Archived</button>
+                        <button class="btn btn-primary" onclick="openFormModal('uom')">+ Add Unit</button>
+                    </div>
+                </div>
+
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Unit Name</th>
+                            <th>Symbol</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tbl-uom"></tbody>
+                </table>
+
+            </section>
+
+
+            <section id="section-user" class="page-section">
+
+                <div class="section-toolbar">
+                    <input type="text" class="search-input" id="search-user" placeholder="Search users...">
+                    <div class="toolbar-actions">
+                        <button class="btn btn-outline-secondary" onclick="openArchivedModal('user')">Archived</button>
+                        <button class="btn btn-primary" onclick="openFormModal('user')">+ Create Account</button>
+                    </div>
+                </div>
+
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Username</th>
+                            <th>Full Name</th>
+                            <th>Email</th>
+                            <th>Role</th>
+                            <th>Status</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tbl-user"></tbody>
+                </table>
+
+            </section>
+
+
+            <section id="section-transactions" class="page-section">
+
+                <div class="tabs">
+                    <button class="tab-btn active" data-tab="tab-po">Purchase Orders</button>
+                    <button class="tab-btn" data-tab="tab-purchase-return">Purchase Returns</button>
+                    <button class="tab-btn" data-tab="tab-recv">Receiving</button>
+                    <button class="tab-btn" data-tab="tab-release">Stock Releases</button>
+                    <button class="tab-btn" data-tab="tab-return">Stock Returns</button>
+                    <button class="tab-btn" data-tab="tab-adjust">Inventory Adjustments</button>
+                </div>
+
+                <!-- Purchase Orders -->
+                <div id="tab-po" class="tab-panel active-tab">
+                    <div class="filter-bar">
+                        <div class="filter-field">
+                            <label for="search-po">Search</label>
+                            <input type="text" id="search-po" placeholder="PO #, supplier, user or status" oninput="renderTxTab('po')">
+                        </div>
+                        <div class="filter-field">
+                            <label for="filter-po-status">Status</label>
+                            <select id="filter-po-status" onchange="renderTxTab('po')"><option value="">All statuses</option></select>
+                        </div>
+                        <div class="filter-actions">
+                            <button class="btn btn-outline-secondary" onclick="clearTxFilters('po')">Clear</button>
+                        </div>
+                    </div>
+                    <div class="filter-count" id="po-count"></div>
+                    <div class="table-responsive">
+                        <table class="data-table tx-table">
+                            <thead><tr><th>Date</th><th>Expected</th><th>Supplier</th><th>Requested By</th><th>Status</th><th>Actions</th></tr></thead>
+                            <tbody id="tbl-po"></tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Purchase Returns -->
+                <div id="tab-purchase-return" class="tab-panel">
+                    <div class="filter-bar">
+                        <div class="filter-field">
+                            <label for="search-pret">Search</label>
+                            <input type="text" id="search-pret" placeholder="Supplier, product, reason or status" oninput="renderTxTab('pret')">
+                        </div>
+                        <div class="filter-field">
+                            <label for="filter-pret-status">Status</label>
+                            <select id="filter-pret-status" onchange="renderTxTab('pret')"><option value="">All statuses</option></select>
+                        </div>
+                        <div class="filter-actions">
+                            <button class="btn btn-outline-secondary" onclick="clearTxFilters('pret')">Clear</button>
+                        </div>
+                    </div>
+                    <div class="filter-count" id="pret-count"></div>
+                    <div class="table-responsive">
+                        <table class="data-table tx-table">
+                            <thead><tr><th>Date</th><th>Supplier</th><th>Product</th><th>Qty</th><th>Status</th><th>Reason</th><th>Actions</th></tr></thead>
+                            <tbody id="tbl-purchase-return"></tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Receiving -->
+                <div id="tab-recv" class="tab-panel">
+                    <div class="filter-bar">
+                        <div class="filter-field">
+                            <label for="search-recv">Search</label>
+                            <input type="text" id="search-recv" placeholder="Receiving #, supplier, user or status" oninput="renderTxTab('recv')">
+                        </div>
+                        <div class="filter-field">
+                            <label for="filter-recv-status">Status</label>
+                            <select id="filter-recv-status" onchange="renderTxTab('recv')"><option value="">All statuses</option></select>
+                        </div>
+                        <div class="filter-actions">
+                            <button class="btn btn-outline-secondary" onclick="clearTxFilters('recv')">Clear</button>
+                        </div>
+                    </div>
+                    <div class="filter-count" id="recv-count"></div>
+                    <div class="table-responsive">
+                        <table class="data-table tx-table">
+                            <thead><tr><th>Date</th><th>Supplier</th><th>Received By</th><th>PO Ref</th><th>Status</th><th>Actions</th></tr></thead>
+                            <tbody id="tbl-recv"></tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Stock Releases -->
+                <div id="tab-release" class="tab-panel">
+                    <div class="filter-bar">
+                        <div class="filter-field">
+                            <label for="search-rel">Search</label>
+                            <input type="text" id="search-rel" placeholder="Release #, released by or status" oninput="renderTxTab('rel')">
+                        </div>
+                        <div class="filter-field">
+                            <label for="filter-rel-status">Status</label>
+                            <select id="filter-rel-status" onchange="renderTxTab('rel')"><option value="">All statuses</option></select>
+                        </div>
+                        <div class="filter-actions">
+                            <button class="btn btn-outline-secondary" onclick="clearTxFilters('rel')">Clear</button>
+                        </div>
+                    </div>
+                    <div class="filter-count" id="rel-count"></div>
+                    <div class="table-responsive">
+                        <table class="data-table tx-table">
+                            <thead><tr><th>Release Date</th><th>Released By</th><th>Items</th><th>Status</th><th>Actions</th></tr></thead>
+                            <tbody id="tbl-release"></tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Stock Returns -->
+                <div id="tab-return" class="tab-panel">
+                    <div class="filter-bar">
+                        <div class="filter-field">
+                            <label for="search-sret">Search</label>
+                            <input type="text" id="search-sret" placeholder="Product, reason, status or user" oninput="renderTxTab('sret')">
+                        </div>
+                        <div class="filter-field">
+                            <label for="filter-sret-status">Status</label>
+                            <select id="filter-sret-status" onchange="renderTxTab('sret')"><option value="">All statuses</option></select>
+                        </div>
+                        <div class="filter-actions">
+                            <button class="btn btn-outline-secondary" onclick="clearTxFilters('sret')">Clear</button>
+                        </div>
+                    </div>
+                    <div class="filter-count" id="sret-count"></div>
+                    <div class="table-responsive">
+                        <table class="data-table tx-table">
+                            <thead><tr><th>Date</th><th>Recorded By</th><th>Product</th><th>Qty</th><th>Status</th><th>Reason</th><th>Actions</th></tr></thead>
+                            <tbody id="tbl-return"></tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Inventory Adjustments -->
+                <div id="tab-adjust" class="tab-panel">
+                    <div class="filter-bar">
+                        <div class="filter-field">
+                            <label for="search-adj">Search</label>
+                            <input type="text" id="search-adj" placeholder="Product, reason, status or user" oninput="renderTxTab('adj')">
+                        </div>
+                        <div class="filter-field">
+                            <label for="filter-adj-status">Status</label>
+                            <select id="filter-adj-status" onchange="renderTxTab('adj')"><option value="">All statuses</option></select>
+                        </div>
+                        <div class="filter-actions">
+                            <button class="btn btn-outline-secondary" onclick="clearTxFilters('adj')">Clear</button>
+                        </div>
+                    </div>
+                    <div class="filter-count" id="adj-count"></div>
+                    <div class="table-responsive">
+                        <table class="data-table tx-table">
+                            <thead><tr><th>Date</th><th>Product</th><th>System</th><th>Actual</th><th>Adjustment</th><th>Type</th><th>Status</th><th>Reason</th><th>Actions</th></tr></thead>
+                            <tbody id="tbl-adjust"></tbody>
+                        </table>
+                    </div>
+                </div>
+
+            </section>
+
+
+            <!-- ============================================================
+                 AUDIT LOG SECTION
+            ============================================================ -->
+            <section id="section-audit" class="page-section">
+
+                <div class="al-top">
+                    <input
+                        type="text"
+                        class="search-input al-search"
+                        id="search-audit"
+                        placeholder="Search user, action, or record"
+                        aria-label="Search audit log"
+                    >
+                </div>
+
+                <div class="al-chips" id="al-chips" role="group" aria-label="Filter by action">
+                    <button type="button" class="al-chip" data-f="all" aria-pressed="true">All</button>
+                    <button type="button" class="al-chip" data-f="login" aria-pressed="false">Logins</button>
+                    <button type="button" class="al-chip" data-f="created" aria-pressed="false">Created</button>
+                    <button type="button" class="al-chip" data-f="updated" aria-pressed="false">Updated</button>
+                    <button type="button" class="al-chip" data-f="approved" aria-pressed="false">Approved</button>
+                    <button type="button" class="al-chip" data-f="rejected" aria-pressed="false">Rejected</button>
+                    <button type="button" class="al-chip" data-f="archived" aria-pressed="false">Archived</button>
+                </div>
+
+                <div id="al-view"></div>
+
+                <div class="al-pagebar">
+                    <p class="al-count" id="al-count"></p>
+
+                    <label class="al-rpp">
+                        Rows per page
+                        <select id="al-size">
+                            <option>5</option>
+                            <option selected>10</option>
+                            <option>25</option>
+                            <option>50</option>
+                        </select>
+                    </label>
+
+                    <nav class="al-pager" id="al-pager" aria-label="Pagination"></nav>
+                </div>
+
+            </section>
+
+        </main>
+
+    </div>
+
+</div>
+
+
+<div id="sidebar-backdrop" class="sidebar-backdrop"></div>
+
+
+<div id="modal-overlay" class="modal-overlay">
+
+    <div class="modal-box">
+
+        <div class="modal-header">
+            <h3 id="modal-title">Add Record</h3>
+            <button class="modal-close" onclick="closeFormModal()">&times;</button>
+        </div>
+
+        <div class="modal-body" id="modal-body"></div>
+
+        <div class="modal-footer">
+            <button class="btn btn-outline-secondary" onclick="closeFormModal()">Cancel</button>
+            <button class="btn btn-primary" id="btn-save-record">Save</button>
+        </div>
+
+    </div>
+
+</div>
+
+
+<div id="confirm-modal-overlay" class="modal-overlay">
+
+    <div class="modal-box confirm-modal-box">
+
+        <div class="modal-header">
+            <h3 id="confirm-modal-title">Confirm Action</h3>
+            <button class="modal-close" onclick="closeConfirmModal(true)">&times;</button>
+        </div>
+
+        <div class="modal-body">
+            <p class="confirm-message" id="confirm-modal-message"></p>
+            <p class="confirm-warning" id="confirm-modal-warning"></p>
+        </div>
+
+        <div class="modal-footer">
+            <button class="btn btn-outline-secondary" onclick="closeConfirmModal(true)">Cancel</button>
+            <button class="btn btn-danger" id="btn-confirm-action">Archive</button>
+        </div>
+
+    </div>
+
+</div>
+
+<div id="supplier-products-modal-overlay" class="modal-overlay">
+
+    <div class="modal-box sp-box">
+
+        <div class="modal-header">
+            <h3 id="supplier-products-modal-title">Supplier Products</h3>
+            <button class="modal-close" onclick="closeSupplierProductsModal()">&times;</button>
+        </div>
+
+        <div class="modal-body sp-body">
+
+            <input type="text" id="sp-search" class="search-input sp-search"
+                   placeholder="Search products or barcode...">
+
+            <div class="sp-chips" id="sp-chips"></div>
+
+            <div class="sp-bar">
+                <label>
+                    <input type="checkbox" id="sp-select-all">
+                    <span id="sp-select-all-text">Select all</span>
+                </label>
+                <span id="sp-bar-info"></span>
+            </div>
+
+            <div class="sp-grid" id="sp-grid"></div>
+
+            <div class="sp-lbl">
+                <span id="sp-linked-title">In this supplier (0)</span>
+                <button type="button" class="sp-link-danger" id="sp-remove-all">Remove all</button>
+            </div>
+
+            <div class="sp-tray" id="sp-tray"></div>
+
+        </div>
+
+        <div class="modal-footer sp-footer">
+            <span class="sp-count" id="sp-selected-count">0 selected</span>
+            <div class="sp-footer-actions">
+                <button class="btn btn-outline-secondary" onclick="closeSupplierProductsModal()">Close</button>
+                <button class="btn btn-primary" id="btn-sp-add" disabled>+ Add selected</button>
+            </div>
+        </div>
+
+        <div class="sp-toast" id="sp-toast"></div>
+
+    </div>
+
+</div>
+
+<div id="archived-modal-overlay" class="modal-overlay">
+
+    <div class="modal-box archived-modal-box">
+
+        <div class="modal-header">
+            <h3 id="archived-modal-title">Archived Records</h3>
+            <button class="modal-close" onclick="closeArchivedModal()">&times;</button>
+        </div>
+
+        <div class="modal-body">
+            <table class="data-table">
+                <thead id="archived-modal-thead"></thead>
+                <tbody id="archived-modal-tbody"></tbody>
+            </table>
+        </div>
+
+        <div class="modal-footer">
+            <button class="btn btn-outline-secondary" onclick="closeArchivedModal()">Close</button>
+        </div>
+
+    </div>
+
+</div>
+
+
+<div id="details-modal-overlay" class="modal-overlay">
+
+    <div class="modal-box dm-box">
+
+        <div class="dm-head">
+            <div>
+                <h3 id="dm-title">Details</h3>
+                <p class="dm-sub" id="dm-sub"></p>
+            </div>
+            <div class="dm-head-right">
+                <span class="dm-pill gray" id="dm-pill" style="display:none;"></span>
+                <button class="dm-x" type="button" onclick="closeDetailsModal()">&times;</button>
+            </div>
+        </div>
+
+        <div id="dm-stepper"></div>
+
+        <div class="dm-body" id="dm-body"></div>
+
+        <div class="dm-foot">
+            <button class="dm-close-btn" type="button" onclick="closeDetailsModal()">Close</button>
+        </div>
+
+    </div>
+
+</div>
+
+
+<div id="message-modal-overlay" class="modal-overlay">
+
+    <div class="modal-box message-modal-box">
+
+        <div class="modal-header">
+            <h3 id="message-modal-title">Message</h3>
+            <button class="modal-close" onclick="hideMessageModal()">&times;</button>
+        </div>
+
+        <div class="modal-body">
+
+            <div class="message-modal-icon info" id="message-modal-icon">&#9432;</div>
+
+            <p class="message-modal-message" id="message-modal-message"></p>
+
+        </div>
+
+        <div class="modal-footer">
+            <button class="btn btn-primary" id="btn-message-confirm">OK</button>
+        </div>
+
+    </div>
+
+</div>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.6.8/axios.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+<script src="admin.js"></script>
+
+</body>
+</html>
